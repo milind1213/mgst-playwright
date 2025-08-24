@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "codegen": "npx playwright codegen",
+    "test:smoke": "npx playwright test --grep \"@smoke\" --project=chromium --retries=0",
+    "test:regression": "npx playwright test --grep \"@regression\" --project=chromium --retries=0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
