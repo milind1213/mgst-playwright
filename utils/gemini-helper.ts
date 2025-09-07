@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const GEMINI_API_KEY = '';
+const GEMINI_API_KEY = 'AIzaSyD_qNH6anQ7bQnxNr-wC3Nt9xdHjoPs2aQ';
 
 export async function generatePlaywrightSteps(task: string): Promise<string> {
     const response = await axios.post(
@@ -12,6 +12,7 @@ export async function generatePlaywrightSteps(task: string): Promise<string> {
         text: `  Convert this test case to Playwright TypeScript code:
     
         ${task}
+        
         ⚠️ Locator & Code Rules:
 
         1. Prefer data-testid if available, else use CSS #id if unique.
