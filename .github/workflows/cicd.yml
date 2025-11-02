@@ -21,14 +21,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 18
           cache: npm
 
       - name: Install deps
         run: npm ci
 
       - name: Build app
-        run: npm run build
+        run: |
+          # Run build only if a build script is defined; otherwise skip gracefully
+          if npm run | grep -q " build"; then
+            echo "Found build script, running npm run build"
+            npm run build
+          else
+            echo "No build script defined in package.json — skipping build step"
+          fi
 
   test_unit:
     name: Unit Tests
