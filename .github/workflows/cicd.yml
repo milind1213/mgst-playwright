@@ -83,6 +83,18 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
+      - name: Debug Playwright environment
+        run: |
+          echo "--- node & npm versions ---"
+          node -v
+          npm -v
+          echo "--- npx playwright version ---"
+          npx playwright --version || true
+          echo "--- list @playwright/test package tree (top-level) ---"
+          npm ls @playwright/test --depth=0 || true
+          echo "--- list all @playwright/test packages (if any) ---"
+          npm ls @playwright/test --all || true
+
       - name: Run Playwright smoke tests
         env:
           CI: true
