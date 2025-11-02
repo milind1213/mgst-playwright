@@ -28,7 +28,7 @@ export async function generatePlaywrightSteps(task: string): Promise<string> {
         11. If no data-testid or unique id exists, prefer semantic element structure:
             - Example: use 'a.user-name h3' for user names inside <a class="user-name"><h3>.
         12. When targeting <h1>, <h2>, <h3> elements, use getByRole('heading', { name: /text/i }) if text is stable.
-        13. Never invent attributes like data-testid if they don’t exist in HTML. 
+        13. Never invent attributes like data-testid if they don’t exist in HTML.  
         14. Always prefer existing class names or roles over creating non-existent attributes.
         15. For dynamic text inside cards (like user names), use '.people-card__content__name h3' or 'a.user-name h3'.
 `

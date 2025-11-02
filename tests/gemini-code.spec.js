@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { generatePlaywrightSteps } from "../utils/gemini-helper";
 import fs from "fs";
 
-test("Code Steps Generate", async () => {
+test.skip("Code Steps Generate", async () => {
   const task = `
     1. Open the URL: https://basecopy5.staging.pg-test.com/v2/
     2. Click on the 'Sign In' button

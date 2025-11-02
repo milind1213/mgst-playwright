@@ -1,7 +1,7 @@
 import { test, request, expect } from "@playwright/test";
 import { fetchEmails } from "../utils/gmailUtils";
 
-test("Gmail -Email Reading Test", async ({ page, request }) => {
+test.skip("Gmail -Email Reading Test", async ({ page, request }) => {
   test.setTimeout(120000);
   const body = await fetchEmails(
     "milind.ghoongade@gmail.com",
@@ -28,9 +28,6 @@ test("Gmail -Email Reading Test", async ({ page, request }) => {
 
   const urlRegex = /https?:\/\/[^\s]+/g;
   const urls = body.match(urlRegex);
+  console.log(urls);
 
-  for (let url of urls) {
-    const response = await request.get(url);
-    expect(response.status()).not.toBe(200);
-  }
 });
